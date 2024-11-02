@@ -1,0 +1,35 @@
+# flux-nginx-demo/helmrelease.yaml
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: GitRepository
+metadata:
+  name: nginx-helm
+  namespace: flux-system
+spec:
+  interval: 1m
+  url: ssh://git@github.com/abhijithvg/flux-nginx-demo
+  ref:
+    branch: main
+  secretRef:
+    name: git-credentials
+
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: my-nginx
+  namespace: default
+spec:
+  releaseName: my-nginx
+  interval: 1m
+  chart:
+    spec:
+      chart: bitnami/nginx
+      sourceRef:
+        kind: GitRepository
+        name: nginx-helm
+        namespace: flux-system
+      version: 9.0.1
+  values:
+    service:
+      enabled: true
+      type: LoadBalancer
