@@ -25,11 +25,11 @@ spec:
         kind: GitRepository
         name: nginx
         namespace: my-app
-      version: 1.0.0
+      version: 18.2.4 # Ensure this is the right version of the chart
   values:
     image:
       repository: nginx
-      tag: "1.21.6"  # Update the version here
+      tag: "1.27.2"  # Update the version here
       pullPolicy: Always  # Ensure the image is pulled every time
     service:
       enabled: true
