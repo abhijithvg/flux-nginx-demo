@@ -27,6 +27,9 @@ spec:
         namespace: my-app
       version: 1.0.0
   values:
+    image:
+      repository: nginx
+      tag: "1.21.6"  # Update the version here
     service:
       enabled: true
       type: LoadBalancer
