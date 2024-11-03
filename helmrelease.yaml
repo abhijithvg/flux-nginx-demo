@@ -30,7 +30,7 @@ spec:
     image:
       repository: nginx
       tag: "1.25.1"  # Update the version here
-      pullPolicy: Always  # Ensure the image is pulled every time
+      #pullPolicy: Always  # Ensure the image is pulled every time
     service:
       enabled: true
       type: LoadBalancer
