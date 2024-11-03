@@ -6,7 +6,7 @@ metadata:
   namespace: default
 spec:
   interval: 1m
-  url: git@github.com:abhijithvg/flux-nginx-demo.git
+  url: ssh://git@github.com/abhijithvg/flux-nginx-demo
   ref:
     branch: main
 
