@@ -1,8 +1,8 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 metadata:
-  name: my-app
-  namespace: my-app
+  name: nginx
+  namespace: default
 spec:
   interval: 1m
   path: "./"
@@ -10,6 +10,6 @@ spec:
   sourceRef:
     kind: GitRepository
     name: nginx
-    namespace: my-app
+    namespace: default
   resources:
     - helmrelease.yaml
